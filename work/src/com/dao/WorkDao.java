@@ -18,7 +18,7 @@ import com.entity.Work;
 public class WorkDao extends BaseDao {
 	// 查询所有的工作笔记记录
 	public List<Work> queryAll() {
-		system.out.println("hhhhhhhhhhhhhhhhhhhhhh");
+		System.out.println("哈哈哈哈");
 		List<Work> list = new ArrayList<Work>();
 		Connection conn = null;
 		Statement stmt = null;
