@@ -10,23 +10,24 @@ import java.util.List;
 import com.entity.Work;
 
 /**
- * ÒµÎñ²ã
+ * ä¸šåŠ¡å±‚
  * 
- * @author ÁõÊ«Ó£
+ * @author åˆ˜è¯—æ¨±
  *
  */
 public class WorkDao extends BaseDao {
-	// ²éÑ¯ËùÓĞµÄ¹¤×÷±Ê¼Ç¼ÇÂ¼
+	// æŸ¥è¯¢æ‰€æœ‰çš„å·¥ä½œç¬”è®°è®°å½•
 	public List<Work> queryAll() {
+		system.out.println("hhhhhhhhhhhhhhhhhhhhhh");
 		List<Work> list = new ArrayList<Work>();
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			conn = super.getConnection();// ´ò¿ªÁ¬½Ó
-			String sql = "SELECT * FROM working ORDER BY createDate DESC";// ±àĞ´SQLÓï¾ä
-			stmt = conn.createStatement();// ´´½¨Ö´ĞĞ¶ÔÏó
-			rs = stmt.executeQuery(sql);// Ö´ĞĞSQLÓï¾ä
+			conn = super.getConnection();// æ‰“å¼€è¿æ¥
+			String sql = "SELECT * FROM working ORDER BY createDate DESC";// ç¼–å†™SQLè¯­å¥
+			stmt = conn.createStatement();// åˆ›å»ºæ‰§è¡Œå¯¹è±¡
+			rs = stmt.executeQuery(sql);// æ‰§è¡ŒSQLè¯­å¥
 			while (rs.next()) {
 				Work work = new Work();
 				work.setId(rs.getInt("id"));
@@ -44,7 +45,7 @@ public class WorkDao extends BaseDao {
 		return list;
 	}
 
-	// ¸ù¾İ±êÌâ²éÑ¯¹¤×÷±Ê¼Ç¼ÇÂ¼Êı
+	// æ ¹æ®æ ‡é¢˜æŸ¥è¯¢å·¥ä½œç¬”è®°è®°å½•æ•°
 	public int queryByTitle(String title) {
 		int result=0;
 		Connection conn=null;
@@ -68,17 +69,17 @@ public class WorkDao extends BaseDao {
 		return result;
 	}
 
-	// ¸ù¾İ±Ê¼Ç±àºÅ²éÑ¯Ö¸¶¨¹¤×÷±Ê¼ÇĞÅÏ¢
+	// æ ¹æ®ç¬”è®°ç¼–å·æŸ¥è¯¢æŒ‡å®šå·¥ä½œç¬”è®°ä¿¡æ¯
 	public Work queryById(int id) {
 		Work work = new Work();
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			conn = super.getConnection();// ´ò¿ªÁ¬½Ó
-			String sql = "SELECT * FROM working WHERE id="+id;// ±àĞ´SQLÓï¾ä
-			stmt = conn.createStatement();// ´´½¨Ö´ĞĞ¶ÔÏó
-			rs = stmt.executeQuery(sql);// Ö´ĞĞSQLÓï¾ä
+			conn = super.getConnection();// æ‰“å¼€è¿æ¥
+			String sql = "SELECT * FROM working WHERE id="+id;// ç¼–å†™SQLè¯­å¥
+			stmt = conn.createStatement();// åˆ›å»ºæ‰§è¡Œå¯¹è±¡
+			rs = stmt.executeQuery(sql);// æ‰§è¡ŒSQLè¯­å¥
 			if (rs.next()) {
 				work.setId(rs.getInt("id"));
 				work.setTitle(rs.getString("title"));
@@ -94,7 +95,7 @@ public class WorkDao extends BaseDao {
 		return work;
 	}
 
-	// Ìí¼Ó¹¤×÷±Ê¼Ç
+	// æ·»åŠ å·¥ä½œç¬”è®°
 	public int addWork(Work work) {
 		Connection conn = null;
 		Statement stmt = null;
