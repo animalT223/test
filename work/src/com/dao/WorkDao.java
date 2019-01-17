@@ -19,6 +19,7 @@ public class WorkDao extends BaseDao {
 	// 查询所有的工作笔记记录
 	public List<Work> queryAll() {
 		System.out.println("哈哈哈哈");
+		System.out.println("111");
 		List<Work> list = new ArrayList<Work>();
 		Connection conn = null;
 		Statement stmt = null;
